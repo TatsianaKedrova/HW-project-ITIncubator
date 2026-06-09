@@ -1,37 +1,29 @@
 {
   "name": "hws2",
-  "homepage": "http://IgnatZakalinsky.github.io/hws2",
+  "homepage": "https://github.com/TatsianaKedrova/HW-project-ITIncubator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "11.10.4",
-    "@emotion/styled": "11.10.4",
-    "@mui/material": "5.10.6",
-    "@testing-library/jest-dom": "5.16.5",
-    "@testing-library/react": "13.3.0",
-    "@testing-library/user-event": "13.5.0",
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@mui/material": "9.1.0",
     "@types/jest": "27.5.2",
-    "@types/node": "16.11.56",
-    "@types/react": "18.0.17",
-    "@types/react-dom": "18.0.6",
-    "@types/uuid": "8.3.4",
-    "axios": "0.27.2",
+    "@types/node": "22.12.0",
+    "axios": "^1.17.0",
     "gh-pages": "4.0.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-redux": "8.0.4",
-    "react-router-dom": "6.4.3",
-    "react-scripts": "5.0.1",
-    "redux": "4.2.0",
-    "typescript": "4.7.4",
-    "uuid": "9.0.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-redux": "9.3.0",
+    "react-router-dom": "7.17.0",
+    "uuid": "^14.0.0",
+    "vite-plugin-checker": "^0.14.1",
     "web-vitals": "2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vite test",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -52,5 +44,35 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "core-js",
+      "core-js-pure"
+    ],
+    "overrides": {
+      "gh-pages@<5.0.0": ">=5.0.0",
+      "axios@>=0.8.1 <0.28.0": ">=0.28.0",
+      "axios@<0.30.0": ">=0.30.0",
+      "@remix-run/router@<=1.23.1": ">=1.23.2",
+      "react-router@>=6.0.0 <6.30.2": ">=6.30.2",
+      "axios@<0.31.0": ">=0.31.0",
+      "axios@<=0.31.0": ">=0.31.1",
+      "axios@<=0.30.2": ">=0.30.3",
+      "uuid@<11.1.1": ">=11.1.1",
+      "axios@<=0.31.1": ">=0.32.0",
+      "axios@>=0.19.0 <0.31.1": ">=0.31.1"
+    }
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "typescript": "6.0.3",
+    "vite": "^8.0.16"
   }
 }
