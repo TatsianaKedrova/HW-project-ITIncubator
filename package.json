@@ -7,8 +7,6 @@
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
     "@mui/material": "9.1.0",
-    "@types/jest": "27.5.2",
-    "@types/node": "22.12.0",
     "axios": "^1.17.0",
     "gh-pages": "4.0.0",
     "react": "19.2.7",
@@ -16,14 +14,14 @@
     "react-redux": "9.3.0",
     "react-router-dom": "7.17.0",
     "uuid": "^14.0.0",
-    "vite-plugin-checker": "^0.14.1",
-    "web-vitals": "2.1.4"
+    "vite-plugin-checker": "^0.14.1"
   },
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vite test",
+    "test": "vitest",
+    "test:run": "vitest run",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -69,10 +67,13 @@
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
     "@testing-library/user-event": "14.6.1",
+    "@types/node": "25.9.2",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "^6.0.2",
+    "jsdom": "^29.1.1",
     "typescript": "6.0.3",
-    "vite": "^8.0.16"
+    "vite": "^8.0.16",
+    "vitest": "^4.1.8"
   }
 }
