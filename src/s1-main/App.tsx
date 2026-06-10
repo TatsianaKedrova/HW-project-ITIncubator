@@ -4,6 +4,7 @@ import HW1 from "../s2-homeworks/hw01/HW1";
 export const App = () => {
   return (
     <div className={s.App}>
+      
       <HW1 />
       {/*раскомментировать по ходу выполнения*/}
       {/*<HW2/>*/}
