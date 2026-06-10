@@ -13,11 +13,12 @@
     "react-dom": "19.2.7",
     "react-redux": "9.3.0",
     "react-router-dom": "7.17.0",
+    "redux": "^5.0.1",
     "uuid": "^14.0.0",
     "vite-plugin-checker": "^0.14.1"
   },
   "scripts": {
-    "start": "vite",
+    "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
