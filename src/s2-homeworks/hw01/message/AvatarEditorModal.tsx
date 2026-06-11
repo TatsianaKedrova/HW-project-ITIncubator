@@ -1,13 +1,25 @@
 import React, { useState, ChangeEvent } from "react";
 import AvatarEditor, { useAvatarEditor } from "react-avatar-editor";
+interface AvatarEditorModalProps {
+  isOpen: boolean;
+  imageFile: File | null;
+  onClose: () => void;
+  onSave: (croppedImageUrl: string) => void;
+}
 
-export const AvatarEditorModal = () => {
+export const AvatarEditorModal = ({
+  isOpen,
+  imageFile,
+  onClose,
+  onSave,
+}: AvatarEditorModalProps) => {
   // Store the File object or null if nothing is uploaded yet
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
-  const [zoomLevel, setZoomLevel] = useState<number>(1.2);
+  const [zoom, setZoom] = useState<number>(1.2);
 
   // Use the library's hook to control the editor instance
   const editorRef = useAvatarEditor();
+  if (!isOpen || !imageFile) return null;
 
   // 1. Grab file from input when chosen
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -24,49 +36,98 @@ export const AvatarEditorModal = () => {
       // Turn the canvas image into a data URL string
       const finalImageUrl: string = canvas.toDataURL();
       console.log("Ready to upload cropped image:", finalImageUrl);
-      // You can now send this finalImageUrl to your database/server!
+      onSave(finalImageUrl);
+      onClose(); // Pass the cropped image URL back to parent
     }
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      {/* File Selector */}
-      <input type="file" accept="image/*" onChange={handleFileChange} />
+    <div style={modalOverlayStyle}>
+      <div style={modalContentStyle}>
+        <h3>Edit Profile Picture</h3>
 
-      {selectedImage && (
-        <div style={{ marginTop: "20px" }}>
-          {/* The Editor Canvas Component */}
+        {/* The Editor Canvas */}
+        <div style={{ marginBottom: "15px" }}>
           <AvatarEditor
             ref={editorRef.ref}
-            image={selectedImage}
-            width={250}
-            height={250}
-            border={50}
-            borderRadius={125} // Half of width makes it a perfect circle!
-            color={[255, 255, 255, 0.6]} // Clear window overlay color
-            scale={zoomLevel}
+            image={imageFile}
+            width={200}
+            height={200}
+            border={40}
+            borderRadius={100} // Half of width makes it a circle
+            color={[0, 0, 0, 0.5]} // Dark dimmed overlay background
+            scale={zoom}
             rotate={0}
           />
-
-          {/* Zoom Slider Control */}
-          <div style={{ margin: "15px 0" }}>
-            <label>Zoom: </label>
-            <input
-              type="range"
-              min="1"
-              max="3"
-              step="0.01"
-              value={zoomLevel}
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setZoomLevel(parseFloat(e.target.value))
-              }
-            />
-          </div>
-
-          {/* Save Button */}
-          <button onClick={handleSave}>Save Profile Picture</button>
         </div>
-      )}
+
+        {/* Zoom Slider Control */}
+        <div style={{ marginBottom: "20px" }}>
+          <label htmlFor="zoom-slider" style={{ marginRight: "10px" }}>
+            Zoom:
+          </label>
+          <input
+            id="zoom-slider"
+            type="range"
+            min="1"
+            max="3"
+            step="0.01"
+            value={zoom}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setZoom(parseFloat(e.target.value))
+            }
+          />
+        </div>
+
+        {/* Action Buttons */}
+        <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
+          <button onClick={onClose} style={cancelButtonStyle}>
+            Cancel
+          </button>
+          <button onClick={handleSave} style={saveButtonStyle}>
+            Save Picture
+          </button>
+        </div>
+      </div>
     </div>
   );
+};
+
+// 🎨 Basic Inline Styles for Quick Testing
+const modalOverlayStyle: React.CSSProperties = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  backgroundColor: "rgba(0, 0, 0, 0.7)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  zIndex: 1000,
+};
+
+const modalContentStyle: React.CSSProperties = {
+  backgroundColor: "#fff",
+  padding: "25px",
+  borderRadius: "8px",
+  textAlign: "center",
+  boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+};
+
+const cancelButtonStyle: React.CSSProperties = {
+  padding: "8px 16px",
+  backgroundColor: "#ccc",
+  border: "none",
+  borderRadius: "4px",
+  cursor: "pointer",
+};
+
+const saveButtonStyle: React.CSSProperties = {
+  padding: "8px 16px",
+  backgroundColor: "#007bff",
+  color: "#fff",
+  border: "none",
+  borderRadius: "4px",
+  cursor: "pointer",
 };

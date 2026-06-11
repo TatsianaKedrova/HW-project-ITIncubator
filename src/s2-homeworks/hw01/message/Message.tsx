@@ -1,17 +1,19 @@
 import { MessagePropsType } from "@/types/chat.project.types";
 import s from "./Message.module.css";
+import { AvatarEditorModal } from "./AvatarEditorModal";
 
 // нужно отобразить приходящие данные
-const Message = ({ message }: MessagePropsType) => {
+export const Message = ({ message }: MessagePropsType) => {
   return (
     <div id={"hw1-message-" + message.id} className={s.message}>
       <div className={s.imageAndText}>
-        <img
+        <AvatarEditorModal />
+        {/* <img
           id={"hw1-avatar-" + message.id}
           // создаёт студент
 
           //
-        />
+        /> */}
         <div className={s.text}>
           <div id={"hw1-name-" + message.id} className={s.name}>
             {/*создаёт студент*/}
@@ -33,5 +35,3 @@ const Message = ({ message }: MessagePropsType) => {
     </div>
   );
 };
-
-export default Message;
