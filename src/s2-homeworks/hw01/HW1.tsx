@@ -2,9 +2,8 @@ import MessageSender from "./message-sender/MessageSender";
 import s2 from "@/s1-main/App.module.css";
 import FriendMessage from "./friend-message/FriendMessage";
 import avatar from "./avatar.png";
-import Message from "./message/Message";
 import { MessageType } from "@/types/chat.project.types";
-
+import { Message } from "./message/Message";
 /*
  * 1 - описать тип MessageType
  * 2 - описать тип MessagePropsType в файле Message.tsx
@@ -18,28 +17,28 @@ export const message0: MessageType = {
   id: 0,
   user: {
     avatar: avatar, // можно менять
-    name: "Some Name", // можно менять
+    name: "Tania", // можно менять
   },
   message: {
-    text: "some textsome textsome textsome textsome textsome textsome text", // можно менять
-    time: "22:00", // можно менять
+    text: "Hi, Bred! It's me, Tania", // можно менять
+    time: Date.now().toString(), // можно менять
   },
 };
 export const friendMessage0: MessageType = {
   id: 100,
   user: {
     avatar: avatar, // можно менять
-    name: "Friend Name", // можно менять
+    name: "Bred", // можно менять
   },
   message: {
     text: "зеркальное сообщение для тренировки css", // можно менять
-    time: "22:00", // можно менять
+    time: Date.now().toString(), // можно менять
   },
 };
 
 const HW1 = () => {
   return (
-    <div id={"hw1"} className={s2.hw}>
+    <div id={"hw1"}>
       <div className={s2.hwTitle}>Homework #1</div>
       <div className={s2.hw}>
         {/*проверка отображения (не менять)*/}

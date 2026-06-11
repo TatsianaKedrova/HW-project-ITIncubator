@@ -11,7 +11,5 @@ export type MessageType = {
 };
 
 export type MessagePropsType = {
-  message: {
-    id: number;
-  };
+  message: MessageType;
 };
