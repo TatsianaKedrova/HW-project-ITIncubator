@@ -1,40 +1,37 @@
-import React from 'react'
-import s from './Message.module.css'
-
-// нужно создать правильный тип вместо any
-export type MessagePropsType = any
+import { MessagePropsType } from "@/types/chat.project.types";
+import s from "./Message.module.css";
 
 // нужно отобразить приходящие данные
-const Message = (props: MessagePropsType) => {
-    return (
-        <div id={'hw1-message-' + props.message.id} className={s.message}>
-            <div className={s.imageAndText}>
-                <img
-                    id={'hw1-avatar-' + props.message.id}
-                    // создаёт студент
+const Message = ({ message }: MessagePropsType) => {
+  return (
+    <div id={"hw1-message-" + message.id} className={s.message}>
+      <div className={s.imageAndText}>
+        <img
+          id={"hw1-avatar-" + message.id}
+          // создаёт студент
 
-                    //
-                />
-                <div className={s.text}>
-                    <div id={'hw1-name-' + props.message.id} className={s.name}>
-                        {/*создаёт студент*/}
+          //
+        />
+        <div className={s.text}>
+          <div id={"hw1-name-" + message.id} className={s.name}>
+            {/*создаёт студент*/}
 
-                        {/**/}
-                    </div>
-                    <pre id={'hw1-text-' + props.message.id} className={s.messageText}>
-                        {/*создаёт студент*/}
+            {/**/}
+          </div>
+          <pre id={"hw1-text-" + message.id} className={s.messageText}>
+            {/*создаёт студент*/}
 
-                        {/**/}
-                    </pre>
-                </div>
-            </div>
-            <div id={'hw1-time-' + props.message.id} className={s.time}>
-                {/*создаёт студент*/}
-
-                {/**/}
-            </div>
+            {/**/}
+          </pre>
         </div>
-    )
-}
+      </div>
+      <div id={"hw1-time-" + message.id} className={s.time}>
+        {/*создаёт студент*/}
 
-export default Message
+        {/**/}
+      </div>
+    </div>
+  );
+};
+
+export default Message;
