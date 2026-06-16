@@ -7,7 +7,7 @@ export const Message = ({ message }: MessagePropsType) => {
   return (
     <div id={"hw1-message-" + message.id} className={s.message}>
       <div className={s.imageAndText}>
-        <AvatarEditorModal />
+        {/* <AvatarEditorModal /> */}
         {/* <img
           id={"hw1-avatar-" + message.id}
           // создаёт студент

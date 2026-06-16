@@ -1,5 +1,5 @@
 import MessageSender from "./message-sender/MessageSender";
-import s2 from "@/s1-main/App.module.css";
+import styles from "./ChatWindow.module.css";
 import FriendMessage from "./friend-message/FriendMessage";
 import avatar from "./avatar.png";
 import { MessageType } from "@/types/chat.project.types";
@@ -38,9 +38,9 @@ export const friendMessage0: MessageType = {
 
 const HW1 = () => {
   return (
-    <div id={"hw1"}>
-      <div className={s2.hwTitle}>Homework #1</div>
-      <div className={s2.hw}>
+    <div id={"hw1"} className={styles.window}>
+      <div className={styles.title}>Homework #1</div>
+      <div className={styles.hw}>
         {/*проверка отображения (не менять)*/}
         <div>
           <Message message={message0} />
