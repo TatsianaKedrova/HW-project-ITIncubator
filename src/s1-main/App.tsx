@@ -1,12 +1,9 @@
-import s from "./App1.module.css";
 import HW1 from "../s2-homeworks/hw01/HW1";
-import { ChatWindow } from "@/s2-homeworks/hw01/ChatWindow";
 
 export const App = () => {
   return (
-    <div className={s.App}>
+    <>
       {/* <ChatWindow /> */}
-
       <HW1 />
       {/*раскомментировать по ходу выполнения*/}
       {/*<HW2/>*/}
@@ -15,6 +12,6 @@ export const App = () => {
 
       {/*при выполнении дз 5 и более - закомментировать здесь дз 1-4, так как они есть внутри дз 5*/}
       {/*<HW5/>*/}
-    </div>
+    </>
   );
 };
