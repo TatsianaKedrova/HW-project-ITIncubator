@@ -45,7 +45,6 @@ const HW1 = () => {
       <header className={styles.headerContainer}>
         <h1 className={styles.hwTitle}>{"Hometask \u2116 1"}</h1>
       </header>
-      
       <div ref={scrollRef} className={styles.messagesContainer}>
         {/*проверка отображения (не менять)*/}
         <div>
