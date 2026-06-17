@@ -1,9 +1,6 @@
 .hw {
-  position: fixed;
-  top: 131px;
-  left: 0;
+  margin-top: 131px;
   border-bottom: 1px solid var(--border);
-
   height: fit-content;
   max-height: calc(100vh - 131px - 40px);
   width: 100%;
@@ -13,7 +10,6 @@
 
 .headerContainer {
   width: 100%;
-  height: var(--header_height, 60px);
 }
 
 .hwTitle {
@@ -23,4 +19,14 @@
   display: flex;
   align-items: center; /* Vertically centers the text inside the header block */
   height: 100%; /* Fills up the header row area cleanly */
+}
+
+.messagesContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column-reverse;
+  gap: 1.5rem;
+  overflow-y: auto;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--border);
 }

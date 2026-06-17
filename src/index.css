@@ -10,6 +10,8 @@
   --muted: oklch(0.97 0.005 258);
   --muted-foreground: oklch(0.556 0 0);
   --border: #d9d9d9;
+  --time: #000000;
+
   --primary-border: oklch(0.52 0.22 258 / 40%);
 
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;

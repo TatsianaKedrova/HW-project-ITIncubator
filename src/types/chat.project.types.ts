@@ -13,3 +13,10 @@ export type MessageType = {
 export type MessagePropsType = {
   message: MessageType;
 };
+
+export type AvatarProps = {
+  avatar: string;
+  time: string;
+  id: number;
+  name: string;
+};
