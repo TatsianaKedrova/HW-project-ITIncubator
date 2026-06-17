@@ -1,31 +1,80 @@
 .friendMessage {
-
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: auto;
+  margin-left: 0;
+  width: 100%;
+  gap: 4px;
 }
 
 .friendImageAndText {
-
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-right: auto;
+  margin-left: 0;
+  width: 100%;
 }
 
 .friendImageAndText img {
-
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .friendText {
-
+  width: fit-content;
+  max-width: 75%;
+  padding: 0.75rem 1rem;
+  position: relative;
+  background-color: var(--muted);
+  color: var(--foreground);
+  border-radius: 1rem 1rem 1rem 0;
 }
 
-.friendText:after {
+@media (min-width: 640px) {
+  .friendText {
+    max-width: 60%; /* Caps width at 60% on larger monitor screens */
+  }
+}
 
+.friendText::before {
+ content: "";
+  position: absolute;
+  bottom: 0; /* Align flat with the bottom of the bubble */
+  left: -12px; /* Width of the triangle */
+  width: 0;
+  height: 0;
+
+  /* The 90-degree trick */
+  border-bottom: 12px solid var(--muted); /* Flat bottom edge */
+  border-left: 12px solid transparent;
 }
 
 .friendName {
-
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: left;
 }
 
 .friendMessageText {
-
+  font-family: "Montserrat";
+  margin-top: 0.25rem;
+  font-size: 16px;
+  line-height: 1.625;
+  text-wrap: pretty;
 }
 
 .friendTime {
-
+  margin-left: auto;
+  align-self: flex-end;
+  font-size: 10px;
+  color: var(--time);
+  margin-right: 5px;
 }

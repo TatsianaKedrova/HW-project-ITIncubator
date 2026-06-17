@@ -1,18 +1,44 @@
 .sendForm {
-
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
 }
 
 .textarea {
+  height: 3rem; /* Starting height */
+  resize: none; /* Stops users from dragging to stretch the box */
+  overflow-y: hidden; /* Hides the default scrollbar (since you use auto-resize) */
+  display: flex;
+  align-items: center; /* Centers your placeholder text vertically */
+  padding: 0.85rem 1.25rem; /* Adjusted padding to center text when typing */
+  line-height: 1.3rem; /* Syncs text height with box height */
 
+  /* 🎨 YOUR ORIGINAL STYLES PRESERVED */
+  flex: 1;
+  border: none;
+  border-radius: 9999px; /* Creates the clean capsule pill shape */
+  background-color: var(--muted);
+  font-size: 0.875rem;
+  color: var(--foreground);
+  outline: none;
 }
 
 .button {
-
+  height: 3rem;
+  border: none;
+  border-radius: 9999px;
+  background-color: var(--primary);
+  padding: 0 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary-foreground);
+  transition: opacity 0.15s ease;
 }
 
 .button:hover {
-
+  opacity: 0.9;
 }
 .button:active {
-
+  box-shadow: 0 0 0 2px var(--primary-ring);
 }
