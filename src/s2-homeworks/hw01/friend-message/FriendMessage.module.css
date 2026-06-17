@@ -72,9 +72,10 @@
 }
 
 .friendTime {
-  margin-left: auto;
-  align-self: flex-end;
+  margin-left: 10px;
+  align-self: flex-start;
   font-size: 10px;
   color: var(--time);
-  margin-right: 5px;
+  margin-right: auto;
+  font-weight: 600;
 }
