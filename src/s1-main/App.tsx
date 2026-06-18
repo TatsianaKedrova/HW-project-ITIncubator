@@ -3,7 +3,6 @@ import HW1 from "../s2-homeworks/hw01/HW1";
 export const App = () => {
   return (
     <>
-      {/* <ChatWindow /> */}
       <HW1 />
       {/*раскомментировать по ходу выполнения*/}
       {/*<HW2/>*/}
