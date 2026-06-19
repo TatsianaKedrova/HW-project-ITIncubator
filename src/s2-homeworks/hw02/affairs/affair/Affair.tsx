@@ -1,7 +1,7 @@
 import React from 'react'
-import { AffairType } from '../../HW2'
 import s from './Affair.module.css'
 import s2 from '../Affairs.module.css'
+import { AffairType } from '@/types/chat.project.types'
 
 type AffairPropsType = {
     // key не нужно типизировать
